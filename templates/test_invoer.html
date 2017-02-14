@@ -1,0 +1,118 @@
+<!doctype html>
+<style>
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 600px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form div + div {
+    margin-top: 1.5em;
+}
+label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+input, textarea, select, option {
+    /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+    font: 1em sans-serif;
+    
+    /* To give the same size to all text field */
+    width: 300px;
+}
+input, textarea {
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+}
+
+
+input:focus, textarea:focus {
+    /* To give a little highlight on active elements */
+    border-color: #000;
+}
+textarea {
+    /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+
+    /* To give enough room to type some text */
+    height: 5em;
+
+    /* To allow users to resize any textarea vertically
+       It does not work on all browsers */
+    resize: vertical;
+}
+.button {
+    /* To position the buttons to the same position of the text fields */
+    padding-left: 150px; /* same size as the label elements */
+}
+button {
+    /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+    margin-left: .5em;
+}
+</style>
+
+<title>FME formulier</title>
+
+<form action="/" method="post">
+    <div>
+        <!-- tekenen met OpenLayers3 https://codepen.io/barbalex/pen/fBpyb -->
+        <!-- of toch: https://github.com/sourcepole/ol3-mobile-viewer -->
+        <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
+        <label for="coords">COORDS</label>
+        <input type="text" id="coords" name="coords" value="134151.8183 447006.2135 137810.4403 449482.8191">
+    </div>
+    <div>
+        <label for="vbo_geb_functie">VBO_GEB_FUNCTIE:</label>
+        <select id="vbo_geb_functie" name="vbo_geb_functie">
+            <option>woonfunctie</option>
+            <option>bijeenkomstfunctie</option>
+            <option>celfunctie</option>
+            <option>gezondheidszorgfunctie</option>
+            <option>industriefunctie</option>
+            <option>kantoorfunctie</option>
+            <option>logiesfunctie</option>
+            <option>onderwijsfunctie</option>
+            <option>overige gebruiksfunctie</option>
+            <option>sportfunctie</option>
+            <option>winkelfunctie</option>
+        </select>
+    </div>
+    <div>
+        <label for="output_format">OUTPUT_FORMAT:</label>
+        <select id="output_format" name="output_format">
+            <option>csv</option>
+            <option selected>pdf</option>
+            <option>txt</option>
+        </select>
+    </div>
+    <div>
+        <label for="output_data">OUTPUT_DATA:</label>
+        <select id="output_data" name="output_data">
+            <option>Adres en Oppervlakte en Gebruiksfunctie</option>
+            <option>Adres</option>
+            <option>Adres en Gebruiksfunctie</option>
+            <option>Adres en Oppervlakte</option>
+            <option>Gebruiksfunctie</option>
+            <option>Oppervlakte</option>
+            <option>Oppervlakte en Gebruiksfunctie</option>
+        </select>
+    </div>    
+    <div class="button">
+        <button type="submit">OK</button>
+    </div>    
+</form>
+
+<script src="/static/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.11.1/ol.js"></script>
+<script src="/static/ngein.js"></script>
