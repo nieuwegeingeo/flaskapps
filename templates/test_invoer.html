@@ -70,7 +70,7 @@ button {
         <!-- of toch: https://github.com/sourcepole/ol3-mobile-viewer -->
         <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
         <label for="coords">COORDS</label>
-        <input type="text" id="coords" name="coords" value="134151.8183 447006.2135 137810.4403 449482.8191">
+        <input type="text" id="coords" name="coords" value="POLYGON((133925 449163, 133784 448860, 134300 448682, 134437 448959, 133925 449163))">
     </div>
     <div>
         <label for="vbo_geb_functie">VBO_GEB_FUNCTIE:</label>
@@ -107,6 +107,10 @@ button {
             <option>Oppervlakte</option>
             <option>Oppervlakte en Gebruiksfunctie</option>
         </select>
+    </div>
+    <div>
+        <label for="coords">EMAIL</label>
+        <input type="text" id="email" name="email" value="{{ email }}">
     </div>    
     <div class="button">
         <button type="submit">OK</button>
