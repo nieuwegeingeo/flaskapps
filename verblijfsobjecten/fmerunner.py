@@ -16,6 +16,7 @@ def handle_request():
     email = "m.kselik@nieuwegein.nl" 
     coords = []
     wijk = ''
+    gebruik = ''
     
     if request.method == 'POST':
     
@@ -24,8 +25,11 @@ def handle_request():
         # create the input string FME wants as input: "Batau Noord, Het Klooster, Fokkesteeg"
         # NOTE: the 'wijkenSelect' is a html FORM with a group of (multi) select boxes
         # so you need to use 'getlist' on the form, which returns an array/list
-        wijk_array = request.form.getlist('wijkenSelect')
+        wijk_array = request.form.getlist('wijkenSelect')        
         wijk =  ','.join(wijk_array) # quickest way to create a csv from a list/array
+        
+        gebruik_array = request.form.getlist('gebruik')
+        gebruik =  ','.join(gebruik_array) # quickest way to create a csv from a list/array
 
         #print wijk
         #print(request.form['coords'])
@@ -42,7 +46,7 @@ def handle_request():
         ## Anders problemen met bijvoorbeeld /f wat dan wordt vertaald als een formfeed-character https://docs.python.org/2.0/ref/strings.html
         
         #cmd = ["C:\\Program Files\\FME\\fme.exe", "D:\\zuidt\\flask\\OphalenGegevensWebpagina_v1.fmw", "--COORDS", coords,  "--VBO_GEB_FUNCTIE", vbo_geb_functie, "--OUTPUT_FORMAT", output_format, "--OUTPUT_DATA", output_data, "--EMAIL", email ]	
-        cmd = ["C:\\Program Files\\FME\\fme.exe", "C:\\programs\\flask\\adressen\\verblijfsobjecten_binnen_wijk_export.fmw", "--WIJKEN_SELECT", wijk, "--EMAIL", email, "--COORDS", coords ]
+        cmd = ["C:\\Program Files\\FME\\fme.exe", "C:\\programs\\flask\\verblijfsobjecten\\verblijfsobjecten_binnen_wijk_export.fmw", "--WIJKEN_SELECT", wijk, "--EMAIL", email, "--COORDS", coords, "--GEBRUIK", gebruik ]
         
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,stderr=subprocess.PIPE,stdin=subprocess.PIPE)
         out,err = p.communicate()
@@ -55,7 +59,7 @@ def handle_request():
      
     else:
         # GET: create form
-        return render_template( 'adressen_invoer.html', wijk=wijk, coords=coords, email=email)
+        return render_template( 'verblijfsobjecten_invoer.html', wijk=wijk, coords=coords, email=email)
         
 # @app.route('/postmethod', methods = ['POST'])
 # def get_post_javascript_data():

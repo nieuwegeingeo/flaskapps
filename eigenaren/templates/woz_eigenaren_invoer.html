@@ -33,28 +33,28 @@
 
     <div class="selector-container">
         <div class="wijken-block no-select border-ng-light">
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="De Wiers"/>De Wiers</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Doorslag"/>Doorslag</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Fokkesteeg"/>Fokkesteeg</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Galecop"/>Galecop</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Het Klooster"/>Het Klooster</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Hoge Landen"/>Hoge Landen</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Hoogzandveld"/>Hoogzandveld</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Huis de Geer"/>Huis de Geer</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Jutphaas Wijkersloot"/>Jutphaas Wijkersloot</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Laagraven"/>Laagraven</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Lekboulevard"/>Lekboulevard</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Merwestein"/>Merwestein</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Park Oudegein"/>Park Oudegein</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Plettenburg"/>Plettenburg</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Rijnhuizen"/>Rijnhuizen</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Stadscentrum"/>Stadscentrum</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Vreeswijk"/>Vreeswijk</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
-            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="De Wiers"/>De Wiers</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Doorslag"/>Doorslag</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Fokkesteeg"/>Fokkesteeg</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Galecop"/>Galecop</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Het Klooster"/>Het Klooster</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Hoge Landen"/>Hoge Landen</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Hoogzandveld"/>Hoogzandveld</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Huis de Geer"/>Huis de Geer</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Jutphaas Wijkersloot"/>Jutphaas Wijkersloot</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Laagraven"/>Laagraven</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Lekboulevard"/>Lekboulevard</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Merwestein"/>Merwestein</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Park Oudegein"/>Park Oudegein</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Plettenburg"/>Plettenburg</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Rijnhuizen"/>Rijnhuizen</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Stadscentrum"/>Stadscentrum</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Vreeswijk"/>Vreeswijk</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
         </div>
         <div class="map-block option-block zichtbaar-flex border-ng-light">
             <p>Teken punten op de kaart door te klikken. Klik twee keer of op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
@@ -80,13 +80,12 @@
         console.log('.'+optionSelector+'');
         $('.'+optionSelector+'').siblings().removeClass('zichtbaar-flex');
         $('.'+optionSelector+'').addClass('zichtbaar-flex');
-        if($('.wijken-block__checkbox').checked) {
+        if($('.input-checkbox').checked) {
             $(this).removeClass('checkbox-aan');
         }
     };
 
-    $('.wijken-block__checkbox').on('click', function(event) {
-
+    $('.input-checkbox').on('click', function(event) {
         console.log('click');
         if($(this).hasClass('checkbox-aan')) {
             $(this).removeClass('checkbox-aan');
@@ -100,17 +99,16 @@
     $('.checkbox').on('click',function(event) {
         event.preventDefault();
         if(this.checked) {
-            console.log('checked')
+            console.log('checked');
         } else {
-            console.log('unchecked')
+            console.log('unchecked');
         }
-    })
+    });
 
-    if(!!window.performance && window.performance.navigation.type === 2)
-{
-    console.log('Reloading');
-    window.location.reload();
-}
+    if(!!window.performance && window.performance.navigation.type === 2) {
+        console.log('Reloading');
+        window.location.reload();
+    };
 </script>
 </body>
 <html>
