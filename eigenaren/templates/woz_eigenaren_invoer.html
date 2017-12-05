@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<title>FME formulier</title>
+<head>
+{% set hostname = 'http://gng-ap713.nieuwegein.nl' %}
+    <link rel="stylesheet" href="{{hostname}}/flask/static/style/base_style.css" type="text/css" />
+    <link rel="stylesheet" href="{{hostname}}/flask/static/style/flask_form.css" type="text/css" />
+    <link rel="stylesheet" href="{{hostname}}/flask/static/style/loading_screen.css" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="{{hostname}}/flask/static/ol.js" defer></script>
+    <script src="{{hostname}}/flask/static/ngein.js" defer></script>
+    <script src="{{hostname}}/flask/static/addWijk.js" defer></script>
+    <script src="{{hostname}}/flask/static/loading.js" defer></script>
+</head>
+<body>
+<form class="border-ng-paars" action="" method="post">
+    <div class="title" >
+    <h1 class="title__text">WOZ Eigenaren Selectie</h1>
+    <a class="button geo-forms-back" href="/geo_forms">Terug</a>
+    </div>
+    
+    <div class="type-container border-ng-light">
+        <p>Welkom op de gegevensformulieren pagina van team Geo-Informatie.</p>
+        <p>Gegevens van WOZ eigenaren kunnen op twee manieren opgevraagd worden, via het tekenen van een vlak op de kaart of door de wijken te selecteren. Maak met het menu hieronder een keuze.</p>
+
+        <select class="type-container__select" onchange="selectorChange()">
+            <option value="map-block">Kaart selectie</option>
+            <option value="wijken-block">Wijken selectie</option>
+            <!--<option>Selecteer type</option>-->
+        </select>
+    </div>
+
+    <div class="selector-container">
+        <div class="wijken-block no-select border-ng-light">
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="De Wiers"/>De Wiers</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Doorslag"/>Doorslag</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Fokkesteeg"/>Fokkesteeg</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Galecop"/>Galecop</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Het Klooster"/>Het Klooster</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Hoge Landen"/>Hoge Landen</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Hoogzandveld"/>Hoogzandveld</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Huis de Geer"/>Huis de Geer</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Jutphaas Wijkersloot"/>Jutphaas Wijkersloot</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Laagraven"/>Laagraven</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Lekboulevard"/>Lekboulevard</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Merwestein"/>Merwestein</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Park Oudegein"/>Park Oudegein</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Plettenburg"/>Plettenburg</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Rijnhuizen"/>Rijnhuizen</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Stadscentrum"/>Stadscentrum</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Vreeswijk"/>Vreeswijk</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
+            <label class="wijken-block__checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
+        </div>
+        <div class="map-block option-block zichtbaar-flex border-ng-light">
+            <p>Teken punten op de kaart door te klikken. Klik twee keer of op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
+            <p>In en uitzoomen kan met het scrollwieltje en de kaart verschuiven kan door te klikken en slepen.</p>
+            <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
+            <label for="coords">Geselecteerde coördinaten:</label>
+            <input type="text" id="coords" name="coords" value="">
+        </div>
+    </div>
+
+    <div class="email-block border-ng-light">
+        <p>Voer een geldig Gemeente Nieuwegein email adres in</p>
+        <input type="field" name="email" value="" placeholder="@nieuwegein.nl">
+    </div>
+
+    <div >
+        <button class="button button-post" type="submit">Verstuur</button>
+    </div>
+</form>
+<script>
+    function selectorChange() {
+        optionSelector = $('.type-container__select option:selected').attr('value');
+        console.log('.'+optionSelector+'');
+        $('.'+optionSelector+'').siblings().removeClass('zichtbaar-flex');
+        $('.'+optionSelector+'').addClass('zichtbaar-flex');
+        if($('.wijken-block__checkbox').checked) {
+            $(this).removeClass('checkbox-aan');
+        }
+    };
+
+    $('.wijken-block__checkbox').on('click', function(event) {
+
+        console.log('click');
+        if($(this).hasClass('checkbox-aan')) {
+            $(this).removeClass('checkbox-aan');
+            return;
+        } else {
+            $(this).addClass('checkbox-aan');
+            return;
+        }
+    });
+
+    $('.checkbox').on('click',function(event) {
+        event.preventDefault();
+        if(this.checked) {
+            console.log('checked')
+        } else {
+            console.log('unchecked')
+        }
+    })
+
+    if(!!window.performance && window.performance.navigation.type === 2)
+{
+    console.log('Reloading');
+    window.location.reload();
+}
+</script>
+</body>
+<html>

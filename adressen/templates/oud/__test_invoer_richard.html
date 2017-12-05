@@ -1,0 +1,88 @@
+<!doctype html>
+<title>FME formulier</title>
+
+
+<head>
+
+{% set hostname = 'http://gng-ap713.nieuwegein.nl' %}
+
+<link rel="stylesheet" href="{{hostname}}/flask/static/ngein.css" type="text/css" />
+
+</head>
+
+<body>
+
+<form action="" method="post">
+    <div class="helpbutton" id="button">
+        <span class="tooltip">Met dit formulier kunt u een of meerdere wijken selecteren om zo alle WOZ eigenaren binnen de wijk(en) te exporteren. U ontvangt een excel document op het opgegeven mail adres.</span> 
+    </div>
+    
+    <h1>Eigenaren binnen wijken</h1>
+    <p>
+        <a>Met dit formulier kunt u een of meerdere wijken selecteren om zo alle WOZ eigenaren binnen de wijk(en) te exporteren. U ontvangt een excel document op het opgegeven mail adres.</a>
+    </p>
+    <p>
+    <div>
+        <label for="WIJK">WIJK:</label>
+        
+        <!--<select id="wijk" name="wijk">
+            <option>Batau Noord</option>
+            <option>Batau Zuid</option>
+            <option>Blokhoeve</option>
+            <option>De Wiers</option>
+            <option>Doorslag</option>
+            <option>Fokkesteeg</option>
+            <option>Galecop</option>
+            <option>Het Klooster</option>
+            <option>Hoge Landen</option>
+            <option>Hoogzandveld</option>
+            <option>Huis de Geer</option>
+            <option>Jutphaas Wijkersloot</option>
+            <option>Laagraven</option>
+            <option>Lekboulevard</option>
+            <option>Merwestein</option>
+            <option>Park Oudegein</option>
+            <option>Plettenburg</option>
+            <option>Rijnhuizen</option>
+            <option>Stadscentrum</option>
+            <option>Vreeswijk</option>
+            <option>Zandveld</option>
+            <option>Zuilenstein</option>
+        </select>-->
+        
+            <input type="text" id="wijk" name="wijk" value=""><br/>
+            
+            <label for="bataunoord">Batau Noord</label><input type="checkbox" id="bataunoord" value="Batau Noord"/><br/>
+            <label for="batauzuid">Batau Zuid</label><input type="checkbox" id="batauzuid" value="Batau Zuid"><br/>
+            <label for="blokhoeve">Blokhoeve</label><input type="checkbox" id="blokhoeve" value="Blokhoeve" /><br/>
+  
+        
+    </div>
+    <div>
+        <label for="coords">EMAIL</label>
+        <input type="text" id="email" name="email" value="{{ email }}">
+    </div>    
+    <div class="button">
+        <button type="submit">OK</button>
+    </div>       
+</form>
+</p>
+
+<script src="{{hostname}}/flask/static/jquery.js"></script>
+<script src="{{hostname}}/flask/static/ol.js"></script>
+<script src="{{hostname}}/flask/static/ngein.js"></script>
+<style>
+input[type="checkbox"] {
+    width: 50px;
+}
+</style>
+<script>
+var dowijken = function() {
+   var wijken = $( "input[type=checkbox]" ).val() || [];
+   console.log('wijken: ' + wijken)
+   $('#wijk').value = wijken;
+};
+$( "input[type=checkbox]" ).on( "click", dowijken );
+</script>
+
+</body>

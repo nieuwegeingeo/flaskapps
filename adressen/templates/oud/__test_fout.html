@@ -1,0 +1,112 @@
+<!doctype html>
+<style>
+
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 600px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form div + div {
+    margin-top: 1.5em;
+}
+label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+input, textarea, select, option {
+    /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+    font: 1em sans-serif;
+    
+    /* To give the same size to all text field */
+    width: 300px;
+}
+input, textarea {
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+}
+
+
+input:focus, textarea:focus {
+    /* To give a little highlight on active elements */
+    border-color: #000;
+}
+textarea {
+    /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+
+    /* To give enough room to type some text */
+    height: 5em;
+
+    /* To allow users to resize any textarea vertically
+       It does not work on all browsers */
+    resize: vertical;
+}
+.button {
+    /* To position the buttons to the same position of the text fields */
+    padding-left: 150px; /* same size as the label elements */
+}
+button {
+    /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+    margin-left: .5em;
+}
+
+a.fout_text {
+        color: #DC143C;
+}
+</style>
+
+<title>FME formulier</title>
+
+<form action="" method="post">
+    <div>
+        <label for="WIJK">WIJK:</label>
+        <select id="wijk" name="wijk">
+            <option>Batau Noord</option>
+            <option>Batau Zuid</option>
+            <option>Blokhoeve</option>
+            <option>De Wiers</option>
+            <option>Doorslag</option>
+            <option>Fokkesteeg</option>
+            <option>Galecop</option>
+            <option>Het Klooster</option>
+            <option>Hoge Landen</option>
+            <option>Hoogzandveld</option>
+            <option>Huis de Geer</option>
+            <option>Jutphaas Wijkersloot</option>
+            <option>Laagraven</option>
+            <option>Lekboulevard</option>
+            <option>Merwestein</option>
+            <option>Park Oudegein</option>
+            <option>Plettenburg</option>
+            <option>Rijnhuizen</option>
+            <option>Stadscentrum</option>
+            <option>Vreeswijk</option>
+            <option>Zandveld</option>
+            <option>Zuilenstein</option>
+        </select>
+    </div>
+    <div>
+        <div style="text-align: center;"><a class="fout_text">Voer een geldig e-mail adres van de Gemeente Nieuwegein in</a></div>
+        <label for="coords">EMAIL</label>
+        <input type="text" id="email" name="email" value="{{ email }}">
+    </div>    
+    <div class="button">
+        <button type="submit">OK</button>
+    </div>    
+</form>
+
+<script src="static/jquery.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ol3/3.11.1/ol.js"></script>
+<script src="static/ngein.js"></script>

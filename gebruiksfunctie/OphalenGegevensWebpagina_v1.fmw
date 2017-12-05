@@ -1,0 +1,755 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    
+#    
+#    Command-line to run this workspace:
+#    
+#    
+#    "C:\Program Files\FME\fme.exe" C:\programs\flask\OphalenGegevensWebpagina_v1.fmw
+#          --COORDS "POLYGON((135213.12 450199.68,135045.12 449984.64,135327.36 449883.84,135508.8 450152.64,135213.12 450199.68)) "
+#          --VBO_GEB_FUNCTIE "woonfunctie"
+#          --OUTPUT_FORMAT "pdf"
+#          --OUTPUT_DATA ""Adres en Oppervlakte en Gebruiksfunctie""
+#          --EMAIL "T.Peet@Nieuwegein.nl"
+#    
+#    
+#!   SHOW_INFO_NODES="true"
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   DOC_TOP_LEFT="-363.937 -1868.64"
+#!   SHOW_ANNOTATIONS="true"
+#!   LOG_FILE=""
+#!   REQUIREMENTS=""
+#!   DESTINATION="NONE"
+#!   IGNORE_READER_FAILURE="No"
+#!   PASSWORD=""
+#!   CATEGORY=""
+#!   USAGE=""
+#!   MAX_LOG_FEATURES="200"
+#!   BEGIN_PYTHON=""
+#!   BEGIN_TCL=""
+#!   ZOOM_SCALE="100"
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   TITLE=""
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   DOC_EXTENTS="2792.57 204.38"
+#!   LAST_SAVE_BUILD="FME(R) 2016.1.0.1 (20160516 - Build 16494 - WIN64)"
+#!   DESCRIPTION=""
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   HISTORY=""
+#!   FME_SERVER_SERVICES=""
+#!   PYTHON_COMPATIBILITY="27"
+#!   LAST_SAVE_DATE="2017-04-19T16:43:34"
+#!   END_TCL=""
+#!   DESTINATION_ROUTING_FILE=""
+#!   WORKSPACE_VERSION="1"
+#!   SOURCE_ROUTING_FILE=""
+#!   LEGAL_TERMS_CONDITIONS=""
+#!   REDIRECT_TERMINATORS="NONE"
+#!   VIEW_POSITION="-1300.01 -231.252"
+#!   REQUIREMENTS_KEYWORD=""
+#!   FME_DOCUMENT_PRIORGUID="5c1e6dc8-452d-4db6-86b0-e0551c10d211,08c00bc5-7fe7-413b-8000-26e3949bef00,361510fd-b383-46ce-95e3-f8288945268c,f2497597-b197-401e-8c7a-35097ae3ba50,071d48b1-1d12-40a1-874b-69deceee35a2,946e6f9c-1bf0-48bc-b586-7179bb0ab225,89942855-53cf-44d3-94a3-87071fcc3f7a,eb5770e3-579d-4a27-9220-9f32447e8450,20bfc900-9841-4de8-a999-d65c1bb961e2,e970ee92-9241-4fa5-a339-4914ab8b33a4,71902702-fd34-4d2a-a2a8-1eabb1361737,0d3c8226-b457-4972-8867-41bc1e1594ec,438b9563-bf87-4ef2-8242-a09ef06e1510,9f0da303-933b-4f93-8206-3bfd609f100a,77d8f438-09f3-470a-862c-b6f58c8f0c49,ff031a6e-8ad0-46bd-8622-d595fabbf33d,f59f2bab-0a40-4dab-a67f-d5e2b60bafd7,f3d00583-e572-445f-815e-649d12021397,1781d659-83a0-4009-b8fc-e7bb968d4fdd"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   SOURCE="NONE"
+#!   FME_BUILD_NUM="16494"
+#!   END_PYTHON=""
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   FME_DOCUMENT_GUID="b2b905b8-d51e-4322-8cd4-ba29f0339ecd"
+#! >
+#! <DATASETS>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI STRING_OR_CHOICE_OR_ATTR COORDS &quot;134558.8545 450403.6628 134744.7243 450570.6146&quot;%&quot;134151.8183 447006.2135 137810.4403 449482.8191&quot; Coordinate List:"
+#!   DEFAULT_VALUE="POLYGON((135213.12 450199.68,135045.12 449984.64,135327.36 449883.84,135508.8 450152.64,135213.12 450199.68)) "
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI LISTBOX_OR_ATTR VBO_GEB_FUNCTIE bijeenkomstfunctie%celfunctie%gezondheidszorgfunctie%industriefunctie%kantoorfunctie%logiesfunctie%onderwijsfunctie%&quot;overige gebruiksfunctie&quot;%sportfunctie%winkelfunctie%woonfunctie Selecteer gebruiksfunctie:"
+#!   DEFAULT_VALUE="woonfunctie"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI CHOICE_OR_ATTR OUTPUT_FORMAT xls%csv%pdf Uitput formaat:"
+#!   DEFAULT_VALUE="pdf"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI LISTBOX_OR_ATTR OUTPUT_DATA Adres%Oppervlakte%Gebruiksfunctie%&quot;Adres en Oppervlakte&quot;%&quot;Adres en Gebruiksfunctie&quot;%&quot;Oppervlakte en Gebruiksfunctie&quot;%&quot;Adres en Oppervlakte en Gebruiksfunctie&quot; Uitput gegevens:"
+#!   DEFAULT_VALUE="&quot;Adres en Oppervlakte en Gebruiksfunctie&quot;"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_OR_ATTR EMAIL email adres?:"
+#!   DEFAULT_VALUE="T.Peet@Nieuwegein.nl"
+#!   IS_STAND_ALONE="false"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="114"
+#!   TYPE="SubDocumentTransformer"
+#!   VERSION="0"
+#!   POSITION="2428.63 -1664.26"
+#!   BOUNDING_RECT="2428.63 -1664.26 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <XFORM_PARM PARM_NAME="email_from" PARM_VALUE="geo-informatie@nieuwegein.nl"/>
+#!     <XFORM_PARM PARM_NAME="email_message" PARM_VALUE="@Value(_result)"/>
+#!     <XFORM_PARM PARM_NAME="password" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="email_subject" PARM_VALUE="test"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SUB_DOC_NAME" PARM_VALUE="PythonEmailer"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="server_port" PARM_VALUE="25"/>
+#!     <XFORM_PARM PARM_NAME="email_message_type" PARM_VALUE="plain"/>
+#!     <XFORM_PARM PARM_NAME="username" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="email_to" PARM_VALUE="$(EMAIL)"/>
+#!     <XFORM_PARM PARM_NAME="email_server" PARM_VALUE="smtp.nieuwegein.nl "/>
+#!     <XFORM_PARM PARM_NAME="attachments" PARM_VALUE="@Value(ATTACH_FILE)"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonEmailer"/>
+#!     <XFORM_PARM PARM_NAME="cType" PARM_VALUE="TLS"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="116"
+#!   TYPE="StringConcatenator"
+#!   VERSION="7"
+#!   POSITION="805.114 -1742.39"
+#!   BOUNDING_RECT="805.114 -1742.39 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ACTION" PARM_VALUE="Create New Attribute"/>
+#!     <XFORM_PARM PARM_NAME="ATTRLIST" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARM_LINE" PARM_VALUE="$(COORDS)&lt;space&gt;$(OUTPUT_DATA)&lt;space&gt;$(OUTPUT_FORMAT)&lt;space&gt;$(VBO_GEB_FUNCTIE)&lt;space&gt;$(EMAIL)"/>
+#!     <XFORM_PARM PARM_NAME="VAL_ATTR" PARM_VALUE="_result"/>
+#!     <XFORM_PARM PARM_NAME="PARAM_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="StringConcatenator"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="145"
+#!   TYPE="Creator"
+#!   VERSION="5"
+#!   POSITION="-363.937 -1742.39"
+#!   BOUNDING_RECT="-363.937 -1742.39 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="CREATED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATEND" PARM_VALUE="no"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOMTYPE" PARM_VALUE="Geometry Object"/>
+#!     <XFORM_PARM PARM_NAME="NUM" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="GEOM" PARM_VALUE="&lt;lt&gt;?xml&lt;space&gt;version=&lt;quote&gt;1.0&lt;quote&gt;&lt;space&gt;encoding=&lt;quote&gt;US_ASCII&lt;quote&gt;&lt;space&gt;standalone=&lt;quote&gt;no&lt;quote&gt;&lt;space&gt;?&lt;gt&gt;&lt;lt&gt;geometry&lt;space&gt;dimension=&lt;quote&gt;2&lt;quote&gt;&lt;gt&gt;&lt;lt&gt;null&lt;solidus&gt;&lt;gt&gt;&lt;lt&gt;&lt;solidus&gt;geometry&lt;gt&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Creator"/>
+#!     <XFORM_PARM PARM_NAME="COORDS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE="EPSG:28992"/>
+#!     <XFORM_PARM PARM_NAME="CRE_ATTR" PARM_VALUE="_creation_instance"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="146"
+#!   TYPE="WorkspaceRunner"
+#!   VERSION="2"
+#!   POSITION="202.695 -1742.39"
+#!   BOUNDING_RECT="202.695 -1742.39 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="SUCCEEDED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="FAILED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_failure_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="SUMMARY"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="_proc_count" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="_processes{}" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_PARM PARM_NAME="MAX_PROC" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETER_TYPES" PARM_VALUE="STRING_OR_CHOICE,LISTBOX,CHOICE,LISTBOX,TEXT,FILENAME,FILENAME"/>
+#!     <XFORM_PARM PARM_NAME="BLOCKING" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="WORKSPACE_FILE" PARM_VALUE="$(FME_MF_DIR)VerwerkenGegevensWebpagina_v1.fmw"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="WorkspaceRunner"/>
+#!     <XFORM_PARM PARM_NAME="WORKSPACE_PARAMETERS" PARM_VALUE="COORDS,POLYGON&lt;openparen&gt;&lt;openparen&gt;135213.12&lt;space&gt;450199.68&lt;comma&gt;135045.12&lt;space&gt;449984.64&lt;comma&gt;135327.36&lt;space&gt;449883.84&lt;comma&gt;135508.8&lt;space&gt;450152.64&lt;comma&gt;135213.12&lt;space&gt;450199.68&lt;closeparen&gt;&lt;closeparen&gt;&lt;space&gt;,VBO_GEB_FUNCTIE,woonfunctie,OUTPUT_FORMAT,xls,OUTPUT_DATA,&lt;quote&gt;Adres&lt;space&gt;en&lt;space&gt;Oppervlakte&lt;space&gt;en&lt;space&gt;Gebruiksfunctie&lt;quote&gt;,SourceDataset_WMS,http:&lt;solidus&gt;&lt;solidus&gt;gng-ap713.nieuwegein.nl&lt;solidus&gt;mapproxy&lt;solidus&gt;service?,DestDataset_PDF2D,J:&lt;backslash&gt;GIS_onderzoek&lt;backslash&gt;2016&lt;backslash&gt;published_parameters&lt;backslash&gt;FME&lt;backslash&gt;Doel&lt;backslash&gt;pdf&lt;backslash&gt;rapport.pdf,DestDataset_XLSXW,rapport"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="7"
+#!   TYPE="TestFilter"
+#!   VERSION="1"
+#!   POSITION="1395.89 -1742.39"
+#!   BOUNDING_RECT="1395.89 -1742.39 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="pdf"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="xls"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="&lt;lt&gt;UNFILTERED&lt;gt&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_PARM PARM_NAME="TEST_LIST" PARM_VALUE="BOOL_OP&lt;comma&gt;OR&lt;comma&gt;COMPOSITE_TEST&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;TEST_CLAUSE&lt;comma&gt;&lt;quote&gt;TEST&lt;space&gt;$(OUTPUT_FORMAT)&lt;space&gt;=&lt;space&gt;pdf&lt;quote&gt;,pdf,BOOL_OP&lt;comma&gt;OR&lt;comma&gt;COMPOSITE_TEST&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;TEST_CLAUSE&lt;comma&gt;&lt;quote&gt;TEST&lt;space&gt;$(OUTPUT_FORMAT)&lt;space&gt;=&lt;space&gt;xls&lt;quote&gt;,xls"/>
+#!     <XFORM_PARM PARM_NAME="DEFAULT_VALUE" PARM_VALUE="&lt;lt&gt;UNFILTERED&lt;gt&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="TestFilter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="9"
+#!   TYPE="AttributeCreator"
+#!   VERSION="8"
+#!   POSITION="1903.14 -1664.26"
+#!   BOUNDING_RECT="1903.14 -1664.26 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="ATTACH_FILE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="MULTI_FEATURE_MODE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NUM_PRIOR_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_VALUE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NUM_SUBSEQUENT_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; ATTACH_FILE SET_TO &lt;backslash&gt;&lt;backslash&gt;DL02EVA&lt;backslash&gt;GEO&lt;backslash&gt;GIS_onderzoek&lt;backslash&gt;2016&lt;backslash&gt;published_parameters&lt;backslash&gt;FME&lt;backslash&gt;Doel&lt;backslash&gt;pdf&lt;backslash&gt;rapport.pdf"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_HANDLING" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE_DISPLAY" PARM_VALUE="No Substitution"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="12"
+#!   TYPE="AttributeCreator"
+#!   VERSION="8"
+#!   POSITION="1903.14 -1868.64"
+#!   BOUNDING_RECT="1903.14 -1868.64 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16494"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="ATTACH_FILE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="MULTI_FEATURE_MODE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NUM_PRIOR_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_VALUE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NUM_SUBSEQUENT_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; ATTACH_FILE SET_TO &lt;backslash&gt;&lt;backslash&gt;DL02EVA&lt;backslash&gt;GEO&lt;backslash&gt;GIS_onderzoek&lt;backslash&gt;2016&lt;backslash&gt;published_parameters&lt;backslash&gt;FME&lt;backslash&gt;Doel&lt;backslash&gt;Excel&lt;backslash&gt;rapport.xlsx"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator_2"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_HANDLING" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE_DISPLAY" PARM_VALUE="No Substitution"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="147"
+#!   SOURCE_NODE="145"
+#!   TARGET_NODE="146"
+#!   SOURCE_PORT_DESC="fo 0 CREATED"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="10"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="9"
+#!   SOURCE_PORT_DESC="fo 0 pdf"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="11"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="114"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 TRIGGER"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="14"
+#!   SOURCE_NODE="12"
+#!   TARGET_NODE="114"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 TRIGGER"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="8"
+#!   SOURCE_NODE="116"
+#!   TARGET_NODE="7"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="148"
+#!   SOURCE_NODE="146"
+#!   TARGET_NODE="116"
+#!   SOURCE_PORT_DESC="fo 0 SUCCEEDED"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="13"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="fo 1 xls"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! <SUBDOCUMENT
+#!   NAME="PythonEmailer"
+#!   FME_PROCESS_GROUP_BY=""
+#!   CATEGORY="Web Services"
+#!   FME_DOCUMENT_PRIORGUID="aa608b35-9f7c-4b19-8306-cb48415f469d,caaebd31-713b-4176-bcec-521f95c12f08,f13f1c4b-30d0-4a85-989f-faa4d9869e92,79fd7e55-4534-46a4-9174-5f8764701a8f"
+#!   ZOOM_SCALE="100"
+#!   IS_VISIBLE="false"
+#!   XFORM_DEPRECATED="No"
+#!   FME_PROCESS_GROUPS_ORDERED="No"
+#!   FME_DOCUMENT_GUID="d95d39af-5116-4541-ac83-fb88ff49beff"
+#!   REQUIREMENTS_KEYWORD="none"
+#!   LEGAL_TERMS_CONDITIONS="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;span style=&quot; font-weight:600;&quot;&gt;Copyright (c) 2014 Safe Software Inc.&lt;/span&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Permission is granted to anyone, free of charge, to use, modify and distribute the object code form of this transformer for any purpose, subject to the following restrictions:&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1) The origin of this transformer and associated FME(R) software must not be misrepresented.&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2) This transformer may only be used in conjunction with a validly licensed copy of FME software.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;THIS SOFTWARE IS PROVIDED BY SAFE SOFTWARE INC. &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SAFE SOFTWARE INC. BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. &lt;/p&gt;&#10;"
+#!   VIEW_POSITION="0 0"
+#!   USAGE="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If you want this transformer to send the outputs of a writer in a workspace, encapsulate that workspace in a WorkspaceRunner transformer and make sure &quot;Wait for Job To Complete&quot; is set to &quot;Yes&quot;, then connect the SUCCESS port of the WorkspaceRunner to PythonEmailer&apos;s Trigger port.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Attachments have to be entered as a list of comma separate values. For example: C:/file1.zip,C:/temp/file2.jpg&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Recipients also have to be entered as a list of comma separated values.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If your email server does not need authentication, leave the Sender Username and Password parameters blank.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Attachments will have CID set to the base filename of the attached file, so you can embed them in an html message.&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For example, if you attach c:\temp\file.jpg, you can embed it with&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;lt;img src=&quot;cid:file.jpg&quot; /&amp;gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;in the HTML source for the message.&lt;/p&gt;&#10;"
+#!   SUPPRESS_UPGRADE="false"
+#!   REQUIREMENTS="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FME 2014 +&lt;/p&gt;&#10;"
+#!   DOC_TOP_LEFT="703 -960"
+#!   FME_PROCESS_COUNT="NO_PARALLELISM"
+#!   FMX_ATTRIBUTE_PROPOGATION_MODE="AUTO"
+#!   DESCRIPTION="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This transformer sends emails that can contain attachments.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When a feature enters the PythonEmailer, it sends the file(s) set for its attachments parameter to the recipient(s). You can also include a custom message with the email.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This transformer uses code found at &quot;http://dzone.com/snippets/send-email-attachments-python&quot; &lt;/p&gt;&#10;"
+#!   TITLE="PythonEmailer"
+#!   DOC_DYNAMIC_INPUT_ATTRS="0"
+#!   DOC_EXTENTS="1401 119"
+#!   HISTORY="2013-08-21,Arash&lt;space&gt;Ouji,Original&lt;space&gt;Implementation,2014-02-05,De&lt;space&gt;Wet&lt;space&gt;van&lt;space&gt;Niekerk,Modified&lt;space&gt;for&lt;space&gt;HTML&lt;space&gt;emails,2014-05-26,Dave&lt;space&gt;Campanas,Added&lt;space&gt;UI&lt;space&gt;option&lt;space&gt;for&lt;space&gt;HTML&lt;space&gt;and&lt;space&gt;fixed&lt;space&gt;UTF&lt;space&gt;character&lt;space&gt;handling,2014-07-03,De&lt;space&gt;Wet&lt;space&gt;van&lt;space&gt;Niekerk,Added&lt;space&gt;CID&lt;space&gt;header&lt;space&gt;for&lt;space&gt;attachments"
+#! >
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_OR_ATTR email_subject Subject:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_OR_ATTR email_from From:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL TEXT_OR_ATTR attachments Attachments:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_OR_ATTR email_to Recipients:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_OR_ATTR email_server Email Server:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI INTEGER_OR_ATTR server_port Email Server Port:"
+#!   DEFAULT_VALUE="25"
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI CHOICE_OR_ATTR cType TLS%SSL Connection Type:"
+#!   DEFAULT_VALUE="TLS"
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL TEXT_OR_ATTR email_message Email Message:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI CHOICE_OR_ATTR email_message_type plain%html Email Message Type (Plain Text/HTML):"
+#!   DEFAULT_VALUE="plain"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL TEXT_OR_ATTR username Sender&apos;s Username:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL PASSWORD_OR_ATTR password Sender&apos;s Password:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="6"
+#!   COMMENT_VALUE="&lt;html&gt;&lt;body&gt;Send mail.&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="2104 -860"
+#!   TOP_LEFT="2104 -860"
+#!   BOTTOM_RIGHT="2104 -860"
+#!   BOUNDING_RECT="2104 -860 0 0"
+#!   ORDER="4"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.192157"
+#!   SIZE_POLICY="8"
+#!   COMMENT_TYPE="REGULAR"
+#!   ANCHORED_NODE="1"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="7"
+#!   COMMENT_VALUE="&lt;html&gt;&lt;body&gt;Add parameters as attributes&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="1231 -841"
+#!   TOP_LEFT="1231 -841"
+#!   BOTTOM_RIGHT="1231 -841"
+#!   BOUNDING_RECT="1231 -841 0 0"
+#!   ORDER="5"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.192157"
+#!   SIZE_POLICY="8"
+#!   COMMENT_TYPE="REGULAR"
+#!   ANCHORED_NODE="2"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="1"
+#!   TYPE="PythonCaller"
+#!   VERSION="4"
+#!   POSITION="2015 -960"
+#!   BOUNDING_RECT="2015 -960 0 0"
+#!   ORDER="2"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="14230"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_email_subject" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_from" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_Attachments" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_to" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_server" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_server_port" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_cType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_message" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_username" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_password" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_message_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="email"/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE" PARM_VALUE="#&lt;space&gt;Original&lt;space&gt;code&lt;space&gt;found&lt;space&gt;at&lt;space&gt;&lt;quote&gt;http:&lt;solidus&gt;&lt;solidus&gt;dzone.com&lt;solidus&gt;snippets&lt;solidus&gt;send-email-attachments-python&lt;quote&gt;&lt;space&gt;and&lt;space&gt;modified&lt;space&gt;by&lt;space&gt;Arash&lt;space&gt;Ouji.&lt;lf&gt;&lt;lf&gt;import&lt;space&gt;smtplib&lt;comma&gt;&lt;space&gt;os&lt;comma&gt;&lt;space&gt;re&lt;lf&gt;from&lt;space&gt;email.MIMEMultipart&lt;space&gt;import&lt;space&gt;MIMEMultipart&lt;lf&gt;from&lt;space&gt;email.MIMEBase&lt;space&gt;import&lt;space&gt;MIMEBase&lt;lf&gt;from&lt;space&gt;email.MIMEText&lt;space&gt;import&lt;space&gt;MIMEText&lt;lf&gt;from&lt;space&gt;email.Utils&lt;space&gt;import&lt;space&gt;formatdate&lt;comma&gt;COMMASPACE&lt;lf&gt;from&lt;space&gt;email&lt;space&gt;import&lt;space&gt;Encoders&lt;lf&gt;&lt;lf&gt;#&lt;space&gt;Main&lt;space&gt;function&lt;lf&gt;def&lt;space&gt;send_mail&lt;openparen&gt;send_from&lt;comma&gt;&lt;space&gt;send_to&lt;comma&gt;&lt;space&gt;subject&lt;comma&gt;&lt;space&gt;text&lt;comma&gt;&lt;space&gt;text_format&lt;comma&gt;&lt;space&gt;server&lt;comma&gt;&lt;space&gt;port&lt;comma&gt;&lt;space&gt;connection_type&lt;comma&gt;&lt;space&gt;username&lt;comma&gt;&lt;space&gt;password&lt;comma&gt;attachments&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Create&lt;space&gt;lists&lt;space&gt;out&lt;space&gt;of&lt;space&gt;attachments&lt;space&gt;and&lt;space&gt;receipients&lt;space&gt;strings&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;filelist=&lt;space&gt;re.split&lt;openparen&gt;&lt;quote&gt;&lt;comma&gt;&lt;quote&gt;&lt;comma&gt;attachments&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;tolist=re.split&lt;openparen&gt;&lt;quote&gt;&lt;comma&gt;&lt;quote&gt;&lt;comma&gt;send_to&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Create&lt;space&gt;a&lt;space&gt;container&lt;space&gt;for&lt;space&gt;the&lt;space&gt;message&lt;space&gt;and&lt;space&gt;populate&lt;space&gt;email&lt;space&gt;headers&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg&lt;space&gt;=&lt;space&gt;MIMEMultipart&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg&lt;openbracket&gt;&lt;apos&gt;From&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;send_from&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg&lt;openbracket&gt;&lt;apos&gt;To&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;COMMASPACE.join&lt;openparen&gt;tolist&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg&lt;openbracket&gt;&lt;apos&gt;Date&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;formatdate&lt;openparen&gt;localtime=True&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg&lt;openbracket&gt;&lt;apos&gt;Subject&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;subject&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Add&lt;space&gt;email&lt;space&gt;body&lt;space&gt;text&lt;comma&gt;&lt;space&gt;forcing&lt;space&gt;encoding&lt;space&gt;to&lt;space&gt;utf-8&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;&lt;space&gt;MIMEText&lt;openparen&gt;text&lt;comma&gt;text_format&lt;comma&gt;&lt;apos&gt;utf-8&lt;apos&gt;&lt;closeparen&gt;&lt;space&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;If&lt;space&gt;there&lt;space&gt;are&lt;space&gt;any&lt;space&gt;attachments&lt;comma&gt;&lt;space&gt;add&lt;space&gt;them&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;&lt;openparen&gt;attachments!=&lt;apos&gt;&lt;apos&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;f&lt;space&gt;in&lt;space&gt;filelist:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part&lt;space&gt;=&lt;space&gt;MIMEBase&lt;openparen&gt;&lt;apos&gt;application&lt;apos&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;octet-stream&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part.set_payload&lt;openparen&gt;&lt;space&gt;open&lt;openparen&gt;f&lt;comma&gt;&lt;quote&gt;rb&lt;quote&gt;&lt;closeparen&gt;.read&lt;openparen&gt;&lt;closeparen&gt;&lt;space&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;Encoders.encode_base64&lt;openparen&gt;part&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part.add_header&lt;openparen&gt;&lt;apos&gt;Content-Disposition&lt;apos&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;attachment&lt;semicolon&gt;&lt;space&gt;filename=&lt;quote&gt;%s&lt;quote&gt;&lt;apos&gt;&lt;space&gt;%&lt;space&gt;os.path.basename&lt;openparen&gt;f&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part.add_header&lt;openparen&gt;&lt;apos&gt;Content-ID&lt;apos&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;&lt;lt&gt;%s&lt;gt&gt;&lt;apos&gt;&lt;space&gt;%&lt;space&gt;os.path.basename&lt;openparen&gt;f&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;part&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;port&lt;space&gt;=&lt;space&gt;int&lt;space&gt;&lt;openparen&gt;port&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Determine&lt;space&gt;how&lt;space&gt;we&lt;space&gt;want&lt;space&gt;to&lt;space&gt;begin&lt;space&gt;the&lt;space&gt;connection&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;&lt;openparen&gt;connection_type==&lt;apos&gt;TLS&lt;apos&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;smtp=smtplib.SMTP&lt;openparen&gt;server&lt;comma&gt;port&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;else:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;smtp&lt;space&gt;=&lt;space&gt;smtplib.SMTP_SSL&lt;openparen&gt;server&lt;comma&gt;port&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;If&lt;space&gt;a&lt;space&gt;username&lt;space&gt;is&lt;space&gt;provided&lt;comma&gt;&lt;space&gt;try&lt;space&gt;to&lt;space&gt;authenticate&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;&lt;openparen&gt;username!=&lt;apos&gt;&lt;apos&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;smtp.login&lt;openparen&gt;username&lt;comma&gt;password&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Send&lt;space&gt;the&lt;space&gt;email&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;smtp.sendmail&lt;openparen&gt;send_from&lt;comma&gt;&lt;space&gt;tolist&lt;comma&gt;&lt;space&gt;msg.as_string&lt;openparen&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;smtp.close&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;#&lt;space&gt;Feature&lt;space&gt;starting&lt;space&gt;point&lt;lf&gt;def&lt;space&gt;email&lt;openparen&gt;feature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Retrieve&lt;space&gt;all&lt;space&gt;variables&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_from=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_from&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_to=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_to&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_subject=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_subject&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_message=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_message&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_message_type=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_message_type&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;email_server=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_email_server&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;server_port=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_server_port&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;cType=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_cType&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;username=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_username&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;password=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_password&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;Attachments=feature.getAttribute&lt;openparen&gt;&lt;apos&gt;_Attachments&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Call&lt;space&gt;the&lt;space&gt;main&lt;space&gt;function&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;send_mail&lt;openparen&gt;email_from&lt;comma&gt;email_to&lt;comma&gt;email_subject&lt;comma&gt;email_message&lt;comma&gt;email_message_type&lt;comma&gt;email_server&lt;comma&gt;server_port&lt;comma&gt;cType&lt;comma&gt;username&lt;comma&gt;password&lt;comma&gt;Attachments&lt;closeparen&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="HIDE_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="2"
+#!   TYPE="ParameterFetcher"
+#!   VERSION="4"
+#!   POSITION="1298 -944"
+#!   BOUNDING_RECT="1298 -944 0 0"
+#!   ORDER="3"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="14230"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_email_subject" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_from" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_Attachments" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_to" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_server" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_server_port" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_cType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_message" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_username" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_password" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_email_message_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="_email_subject {$(email_subject)} _email_from {$(email_from)} _Attachments {$(attachments)} _email_to {$(email_to)} _email_server {$(email_server)} _server_port {$(server_port)} _cType {$(cType)} _email_message {$(email_message)} _username {$(username)} _password {$(password)} _email_message_type {$(email_message_type)}"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ParameterFetcher"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <SUBDOCUMENT_IOS>
+#! <SUBDOCUMENT_IO
+#!   IDENTIFIER="3"
+#!   NAME="TRIGGER"
+#!   POSITION="703 -944"
+#!   BOUNDING_RECT="703 -944 0 0"
+#!   COLLAPSED="false"
+#!   PUBLISHED="true"
+#!   IS_SOURCE="true"
+#!   ATTR_MODE="0"
+#! >
+#! </SUBDOCUMENT_IO>
+#! </SUBDOCUMENT_IOS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="5"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="4"
+#!   SOURCE_NODE="2"
+#!   TARGET_NODE="1"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! </SUBDOCUMENT>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+FME_PYTHON_VERSION 27
+DEFAULT_MACRO COORDS POLYGON((135213.12 450199.68,135045.12 449984.64,135327.36 449883.84,135508.8 450152.64,135213.12 450199.68)) 
+GUI STRING_OR_CHOICE COORDS "134558.8545 450403.6628 134744.7243 450570.6146"%"134151.8183 447006.2135 137810.4403 449482.8191" Coordinate List:
+DEFAULT_MACRO VBO_GEB_FUNCTIE woonfunctie
+GUI LISTBOX VBO_GEB_FUNCTIE bijeenkomstfunctie%celfunctie%gezondheidszorgfunctie%industriefunctie%kantoorfunctie%logiesfunctie%onderwijsfunctie%"overige gebruiksfunctie"%sportfunctie%winkelfunctie%woonfunctie Selecteer gebruiksfunctie:
+DEFAULT_MACRO OUTPUT_FORMAT pdf
+GUI CHOICE OUTPUT_FORMAT xls%csv%pdf Uitput formaat:
+DEFAULT_MACRO OUTPUT_DATA "Adres en Oppervlakte en Gebruiksfunctie"
+GUI LISTBOX OUTPUT_DATA Adres%Oppervlakte%Gebruiksfunctie%"Adres en Oppervlakte"%"Adres en Gebruiksfunctie"%"Oppervlakte en Gebruiksfunctie"%"Adres en Oppervlakte en Gebruiksfunctie" Uitput gegevens:
+DEFAULT_MACRO EMAIL T.Peet@Nieuwegein.nl
+GUI TEXT EMAIL email adres?:
+INCLUDE [ if {{$(COORDS)} == {}} { puts_real {Parameter 'COORDS' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(VBO_GEB_FUNCTIE)} == {}} { puts_real {Parameter 'VBO_GEB_FUNCTIE' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(OUTPUT_FORMAT)} == {}} { puts_real {Parameter 'OUTPUT_FORMAT' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(OUTPUT_DATA)} == {}} { puts_real {Parameter 'OUTPUT_DATA' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(EMAIL)} == {}} { puts_real {Parameter 'EMAIL' must be given a value.}; exit 1; }; ]
+#! START_HEADER
+#! START_WB_HEADER
+READER_TYPE NULL
+READER_KEYWORD NULL_SOURCE
+NULL_SOURCE_DATASET null
+
+WRITER_TYPE NULL
+WRITER_KEYWORD NULL_DEST
+NULL_DEST_DATASET null
+#! END_WB_HEADER
+
+#! START_WB_HEADER
+#! END_WB_HEADER
+
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)OphalenGegevensWebpagina_v1.log"
+LOG_APPEND NO
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+LOG_FILTER_MASK -1
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO WORKSPACE_NAME OphalenGegevensWebpagina_v1
+MACRO FME_VIEWER_APP fmedatainspector
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+
+Tcl2 proc Creator_CoordSysRemover {} {   global FME_CoordSys;   set FME_CoordSys {}; }
+MACRO Creator_XML     NOT_ACTIVATED
+MACRO Creator_CLASSIC NOT_ACTIVATED
+MACRO Creator_2D3D    2D_GEOMETRY
+MACRO Creator_COORDS  <Unused>
+INCLUDE [ if { {Geometry Object} == {Geometry Object} } {            puts {MACRO Creator_XML *} } ]
+INCLUDE [ if { {Geometry Object} == {2D Coordinate List} } {            puts {MACRO Creator_2D3D 2D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+INCLUDE [ if { {Geometry Object} == {3D Coordinate List} } {            puts {MACRO Creator_2D3D 3D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+INCLUDE [ if { {Geometry Object} == {2D Min/Max Box} } {            set comment {                We need to turn the COORDS which are                    minX minY maxX maxY                into a full polygon list of coordinates            };            set splitCoords [split [string trim {<Unused>}]];            if { [llength $splitCoords] > 4} {               set trimmedCoords {};               foreach item $splitCoords { if { $item != {} } {lappend trimmedCoords $item} };               set splitCoords $trimmedCoords;            };            if { [llength $splitCoords] != 4 } {                error {Creator: Coordinate list is expected to be a space delimited list of four numbers as 'minx miny maxx maxy' - `<Unused>' is invalid};            };            set minX [lindex $splitCoords 0];            set minY [lindex $splitCoords 1];            set maxX [lindex $splitCoords 2];            set maxY [lindex $splitCoords 3];            puts "MACRO Creator_COORDS $minX $minY $minX $maxY $maxX $maxY $maxX $minY $minX $minY";            puts {MACRO Creator_2D3D 2D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+FACTORY_DEF $(Creator_XML) CreationFactory    FACTORY_NAME Creator_XML_Creator    CREATE_AT_END no    OUTPUT FEATURE_TYPE _____CREATED______        @Geometry(FROM_ENCODED_STRING,<lt>?xml<space>version=<quote>1.0<quote><space>encoding=<quote>US_ASCII<quote><space>standalone=<quote>no<quote><space>?<gt><lt>geometry<space>dimension=<quote>2<quote><gt><lt>null<solidus><gt><lt><solidus>geometry<gt>)
+FACTORY_DEF $(Creator_CLASSIC) CreationFactory    FACTORY_NAME Creator_CLASSIC_Creator    $(Creator_2D3D) $(Creator_COORDS)    CREATE_AT_END no    OUTPUT FEATURE_TYPE _____CREATED______
+FACTORY_DEF * TeeFactory    FACTORY_NAME Creator_Cloner    INPUT FEATURE_TYPE _____CREATED______    NUMBER_OF_COPIES 1    COPY_NUMBER_ATTRIBUTE "_creation_instance"    OUTPUT FEATURE_TYPE Creator_CREATED        @Tcl2(Creator_CoordSysRemover)        @CoordSys(EPSG:28992)        fme_feature_type Creator
+
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED Brancher -1 147"   INPUT FEATURE_TYPE Creator_CREATED   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   OUTPUT PASSED FEATURE_TYPE *     @RemoveAttributes("Creator_CREATED Brancher -1 147".BranchingFactory.Count)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
+# -------------------------------------------------------------------------
+
+# Convert the workspace name to one containing only / -- Tcl likes this better
+# (and so do I)
+
+# And determine the "NULL" device so we can ensure we don't get stray output
+# messing up our stdout if we are running workspaces in the background
+# See http://wiki.tcl.tk/1649 for a description of the tcl_platform
+# variable, the "platform" part seems to have valid values windows, unix, and
+# macintosh (the latter of which is actually pre-OS X)
+
+Tcl2 if { $tcl_platform(platform) == {windows} } {         set ::null_device {NUL:};         set ::__WR_ENV_HELPER__ {};      } else {         set ::null_device {/dev/null};         set ::__WR_ENV_HELPER__ {/usr/bin/env FME_SUBPROCESS_RUN_DETACHED=1}      };
+Tcl2 proc WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_runner { parmListString workspaceFile } {    set workspaceFileUnix [regsub -all {\\} $workspaceFile {/}];    set parmListString [string range $parmListString 1 end-1];    set comment {        Build up the command line in a list, which we'll "eval" to get        at its pieces when we actually execute the "exec".    };    lappend commandArguments {*}$::__WR_ENV_HELPER__ {$(FME_HOME_UNIX)/fme}                             $workspaceFileUnix;    set parmList [split $parmListString {,}];    set comment {        At the same time, remember the TYPES for each of the parameters so        we can avoid logging any passwords in plain text (PR 64546)    };    set parmTypes [split {STRING_OR_CHOICE,LISTBOX,CHOICE,LISTBOX,TEXT,FILENAME,FILENAME} {,}];    set comment {        Note that foreach can walk thorugh more than one list at a time.        If the lists were ever out of sync (had different #s of entries, which should be impossible)        the iteration continues with the shorter list return an empty string. So we should be okay    };    set commandArgumentsToLog $commandArguments;    foreach {parmName encodedValue} $parmList parmType $parmTypes {       set comment {           Decode the parameter value which we now know is very encoded to guard           it from the parser and append them each to a new list which will be passed           as the arguments to the exec function.  Note that the           parameter names need to be turned into macro settings by           prepending them with --           Note also that the WorkspaceRunner sometimes encodes attribute           dereferences by placing <amp> at the beginning rather than using @Value.           Further note that string range forgives if the ending index is > the length of           the string, so we can just ask for the first 5 characters           when we're checking for <amp>.       };       lappend commandArguments \"--$parmName\";       lappend commandArgumentsToLog \"--$parmName\";       set comment {           for backwards compatibility, replace first <amp>       };       if { [string range $encodedValue 0 4] == {<amp>} &&            [string length $encodedValue] > 5 } {           set encodedValue [string replace $encodedValue 0 4 {<at>Value<openparen>}]];           append encodedValue "<closeparen>";       };       set comment { We used to call FME_DecodeTextOrAttr here. After changes to                     the code that writes out the mapping file section, we don't                     need to do this any more because the value would be in the                     correct state of encoding as required by the child workspace       };       set comment { parameter values starting with '<' causes tcl exec to fail so                     we escape leading '<' with backslash and then do the reverse                     when parsing command line arguments       };       if { [string index $encodedValue 0] == {<} } {          set encodedValue "\\$encodedValue";       };       lappend commandArguments $encodedValue;       set comment {           Ensure that passwords are not added into the logmessage (PR 64546)           We'll guard against both PASSWORD and PASSWORD_CONFIRM GUI types           by checking if the word PASSWORD is in the GUI TYPE at all       };       if { [string first {PASSWORD} $parmType] != -1 } {           lappend commandArgumentsToLog {***};       } else {           lappend commandArgumentsToLog $encodedValue;       };    };    set comment {        Now optionally run this in a detached way if we were not supposed        to wait by adding & on the end to put it in the background.  And        at the same time, ensure that any stray stdout/stderr is routed to        null.    };    if { {No} == {No} } {        lappend commandArguments \">$::null_device\";        lappend commandArgumentsToLog \">$::null_device\";        lappend commandArguments \"<$::null_device\";        lappend commandArgumentToLogs \"<$::null_device\";        FME_LogMessage fme_inform \"WorkspaceRunner: Initiating run of FME Workspace $workspaceFile with command line:\";    } else {        FME_LogMessage fme_inform \"WorkspaceRunner: Running FME Workspace $workspaceFile with command line:\";    };    set comment {        The below 2>@1 forces any standard error output to go into the msg variable        or to NULL if we're running in the background.    };    lappend commandArguments {2>@1};    lappend commandArgumentsToLog {2>@1};    if { {No} == {No} } {        lappend commandArguments {&};        lappend commandArgumentsToLog {&};    };    FME_LogMessage fme_inform [concat WorkspaceRunner: $commandArgumentsToLog];    if { {No} == {No} } {       after 1000;       while { [FME_CanSpawnFme ] == {0} } {             after 2000;       };    };    if {[catch {eval [concat exec $commandArguments] } msg ]} {       set msg [regsub {\015*\012child[^\012]*$} $msg {}];       FME_LogMessage fme_warn \"WorkspaceRunner: Failed to run workspace $workspaceFileUnix -- Trace was:\n\n$msg\n\";       FME_SetAttribute _failure_message $msg;       return FAILURE;    } else {       global WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_process_count;       incr WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_process_count;       if { {No} == {No} } {           FME_LogMessage fme_inform \"WorkspaceRunner: Successfully initiated run of workspace $workspaceFile\";           global WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_all_processes;           lappend WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_all_processes $msg;       } else {           FME_LogMessage fme_inform \"WorkspaceRunner: Successfully ran workspace $workspaceFile\";       };       return SUCCESS;    }; }
+FACTORY_DEF * TestFactory    FACTORY_NAME WorkspaceRunner_ExecutorAndRouter    INPUT  FEATURE_TYPE Creator_CREATED    TEST @Tcl2("WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_runner {(COORDS,POLYGON((135213.12 450199.68,135045.12 449984.64,135327.36 449883.84,135508.8 450152.64,135213.12 450199.68)) ,VBO_GEB_FUNCTIE,woonfunctie,OUTPUT_FORMAT,xls,OUTPUT_DATA,"Adres en Oppervlakte en Gebruiksfunctie",SourceDataset_WMS,http://gng-ap713.nieuwegein.nl/mapproxy/service?,DestDataset_PDF2D,J:\GIS_onderzoek\2016\published_parameters\FME\Doel\pdf\rapport.pdf,DestDataset_XLSXW,rapport)} {@EvaluateExpression(FDIV,STRING,$(FME_MF_DIR$encode)VerwerkenGegevensWebpagina_v1.fmw,WorkspaceRunner)}") == SUCCESS    OUTPUT PASSED FEATURE_TYPE WorkspaceRunner_SUCCEEDED
+Tcl2 proc WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_summarizer { } {     global WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_process_count;     set comment { incr 0 creates the variable if it wasn't present };     incr WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_process_count 0;     FME_SetAttribute _proc_count [set WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_process_count];     global WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_all_processes;     if {[info exists WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_all_processes]} {         set index 0;         foreach pid [set WorkspaceRunner_1721c042_de2c_49b4_9d02_fe17f888be000_all_processes] {             FME_SetAttribute \"_processes{$index}\" $pid;             incr index;         }     } }
+FACTORY_DEF * CreationFactory    FACTORY_NAME WorkspaceRunner_SummaryMaker    CREATE_AT_END yes
+
+# -------------------------------------------------------------------------
+
+
+Tcl2 proc StringConcatenator_evaluator {} {    if {{OUTGOING} == {OUTGOING}} {      set attr [FME_DecodeText {_result}];      if {[string length $attr] == 0} { return; };      set attrs [list [FME_EncodeText $attr]];    } else {      set attrAll {<Unused>};      if {[string length $attrAll] == 0} { return; };      set attrs [split {<Unused>} { }];    };    set parmList {{EvaluateExpression} {ATTR_CREATE_EXPR_PROPOGATE_MISSING_FDIV}};    foreach attr $attrs {     lappend parmList $attr;     lappend parmList {"$(COORDS$encode)<space>$(OUTPUT_DATA$encode)<space>$(OUTPUT_FORMAT$encode)<space>$(VBO_GEB_FUNCTIE$encode)<space>$(EMAIL$encode)"};    };    lappend parmList {StringConcatenator};    eval FME_Execute $parmList; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME StringConcatenator    INPUT  FEATURE_TYPE WorkspaceRunner_SUCCEEDED    OUTPUT FEATURE_TYPE StringConcatenator_OUTPUT         @Tcl2("StringConcatenator_evaluator ")
+
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter    INPUT  FEATURE_TYPE StringConcatenator_OUTPUT    OUTPUT FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_0
+
+FACTORY_DEF * TestFactory FACTORY_NAME TestFilter_TestFactory_0 INPUT FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_0 TEST @EvaluateExpression(FDIV,STRING_ENCODED,$(OUTPUT_FORMAT$encode),TestFilter) = pdf ENCODED BOOLEAN_OPERATOR OR COMPOSITE_TEST_EXPR <Unused> OUTPUT PASSED FEATURE_TYPE TestFilter_pdf OUTPUT FAILED FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_1
+FACTORY_DEF * TestFactory FACTORY_NAME TestFilter_TestFactory_1 INPUT FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_1 TEST @EvaluateExpression(FDIV,STRING_ENCODED,$(OUTPUT_FORMAT$encode),TestFilter) = xls ENCODED BOOLEAN_OPERATOR OR COMPOSITE_TEST_EXPR <Unused> OUTPUT PASSED FEATURE_TYPE TestFilter_xls OUTPUT FAILED FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_2
+FACTORY_DEF * TeeFactory FACTORY_NAME TestFilter_<lt>UNFILTERED<gt> INPUT FEATURE_TYPE TestFilter_TESTFILTERINPUTLINE_2 OUTPUT FEATURE_TYPE TestFilter_<lt>UNFILTERED<gt>
+FACTORY_DEF * TeeFactory   FACTORY_NAME "TestFilter <lt>UNFILTERED<gt> Output Nuker"   INPUT FEATURE_TYPE TestFilter_<lt>UNFILTERED<gt>
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * AttrSetFactory    FACTORY_NAME AttributeCreator_2    INPUT  FEATURE_TYPE TestFilter_xls    MULTI_FEATURE_MODE NO 	 NULL_ATTR_MODE NO_OP 	 ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV 	 ATTR_ACTION "" "ATTACH_FILE" "SET_TO" "<backslash><backslash>DL02EVA<backslash>GEO<backslash>GIS_onderzoek<backslash>2016<backslash>published_parameters<backslash>FME<backslash>Doel<backslash>Excel<backslash>rapport.xlsx"    OUTPUT OUTPUT FEATURE_TYPE AttributeCreator_2_OUTPUT
+
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * AttrSetFactory    FACTORY_NAME AttributeCreator    INPUT  FEATURE_TYPE TestFilter_pdf    MULTI_FEATURE_MODE NO 	 NULL_ATTR_MODE NO_OP 	 ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV 	 ATTR_ACTION "" "ATTACH_FILE" "SET_TO" "<backslash><backslash>DL02EVA<backslash>GEO<backslash>GIS_onderzoek<backslash>2016<backslash>published_parameters<backslash>FME<backslash>Doel<backslash>pdf<backslash>rapport.pdf"    OUTPUT OUTPUT FEATURE_TYPE AttributeCreator_OUTPUT
+
+
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "PythonEmailer TRIGGER Input Collector"   INPUT FEATURE_TYPE AttributeCreator_OUTPUT   INPUT FEATURE_TYPE AttributeCreator_2_OUTPUT   OUTPUT FEATURE_TYPE PythonEmailer_TRIGGER
+MACRO PythonEmailer_WORKSPACE_NAME PythonEmailer
+MACRO $(PythonEmailer_WORKSPACE_NAME)_XFORMER_NAME PythonEmailer
+MACRO $(PythonEmailer_WORKSPACE_NAME)_TRANSFORMER_GROUP 
+MACRO $(PythonEmailer_WORKSPACE_NAME)___COMPOUND_PARAMETERS 
+MACRO $(PythonEmailer_WORKSPACE_NAME)_SUB_DOC_NAME PythonEmailer
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_subject test
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_from geo-informatie@nieuwegein.nl
+MACRO $(PythonEmailer_WORKSPACE_NAME)_attachments @Value(ATTACH_FILE)
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_to $(EMAIL)
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_server smtp.nieuwegein.nl 
+MACRO $(PythonEmailer_WORKSPACE_NAME)_server_port 25
+MACRO $(PythonEmailer_WORKSPACE_NAME)_cType TLS
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_message @Value(_result)
+MACRO $(PythonEmailer_WORKSPACE_NAME)_email_message_type plain
+MACRO $(PythonEmailer_WORKSPACE_NAME)_username 
+MACRO $(PythonEmailer_WORKSPACE_NAME)_password 
+DEFAULT_MACRO PythonEmailer_WORKSPACE_NAME ""
+INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(PythonEmailer_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(PythonEmailer_WORKSPACE_NAME)}]
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PythonEmailer_WORKSPACE_NAME)_TRIGGER1492613014 Input Splitter"   INPUT FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_TRIGGER"   OUTPUT FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_TRIGGER"
+# -------------------------------------------------------------------------
+
+Tcl2 proc $(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher_doFetch {} {    foreach {name val} {"_email_subject {$($(PythonEmailer_WORKSPACE_NAME)_email_subject$encode)} _email_from {$($(PythonEmailer_WORKSPACE_NAME)_email_from$encode)} _Attachments {$($(PythonEmailer_WORKSPACE_NAME)_attachments$encode)} _email_to {$($(PythonEmailer_WORKSPACE_NAME)_email_to$encode)} _email_server {$($(PythonEmailer_WORKSPACE_NAME)_email_server$encode)} _server_port {$($(PythonEmailer_WORKSPACE_NAME)_server_port$encode)} _cType {$($(PythonEmailer_WORKSPACE_NAME)_cType$encode)} _email_message {$($(PythonEmailer_WORKSPACE_NAME)_email_message$encode)} _username {$($(PythonEmailer_WORKSPACE_NAME)_username$encode)} _password {$($(PythonEmailer_WORKSPACE_NAME)_password$encode)} _email_message_type {$($(PythonEmailer_WORKSPACE_NAME)_email_message_type$encode)}"} {         if { [string match {*<at>*} $val] == 1 } {             set val [FME_Execute EvaluateExpression {STRING} $val {$(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher}];         } elseif {[string match {*FME_CONDITIONAL*} $val] == 1} {             set val [FME_Execute EvaluateExpression {STRING} $val {$(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher}];         } else {             set val [FME_DecodeTextOrAttr $val];         };       FME_SetAttribute [FME_DecodeText $name] $val    } }
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher    INPUT  FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_TRIGGER"    OUTPUT FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher_OUTPUT"         @Tcl2($(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher_doFetch)
+
+# -------------------------------------------------------------------------
+
+
+FME_PYTHON_PATH "$(FME_MF_DIR)"
+
+FACTORY_DEF * PythonFactory    FACTORY_NAME $(PythonEmailer_WORKSPACE_NAME)_PythonCaller    INPUT  FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_ParameterFetcher_OUTPUT"    SYMBOL_NAME email    PYTHON_NAMESPACE FMEOBJECTS    SOURCE_CODE #<space>Original<space>code<space>found<space>at<space><quote>http:<solidus><solidus>dzone.com<solidus>snippets<solidus>send-email-attachments-python<quote><space>and<space>modified<space>by<space>Arash<space>Ouji.<lf><lf>import<space>smtplib<comma><space>os<comma><space>re<lf>from<space>email.MIMEMultipart<space>import<space>MIMEMultipart<lf>from<space>email.MIMEBase<space>import<space>MIMEBase<lf>from<space>email.MIMEText<space>import<space>MIMEText<lf>from<space>email.Utils<space>import<space>formatdate<comma>COMMASPACE<lf>from<space>email<space>import<space>Encoders<lf><lf>#<space>Main<space>function<lf>def<space>send_mail<openparen>send_from<comma><space>send_to<comma><space>subject<comma><space>text<comma><space>text_format<comma><space>server<comma><space>port<comma><space>connection_type<comma><space>username<comma><space>password<comma>attachments<closeparen>:<lf><space><space><space><space><lf><space><space><space><space>#<space>Create<space>lists<space>out<space>of<space>attachments<space>and<space>receipients<space>strings<lf><space><space><space><space>filelist=<space>re.split<openparen><quote><comma><quote><comma>attachments<closeparen><lf><space><space><space><space>tolist=re.split<openparen><quote><comma><quote><comma>send_to<closeparen><lf><space><space><space><space><lf><space><space><space><space>#<space>Create<space>a<space>container<space>for<space>the<space>message<space>and<space>populate<space>email<space>headers<lf><space><space><space><space>msg<space>=<space>MIMEMultipart<openparen><closeparen><lf><space><space><space><space>msg<openbracket><apos>From<apos><closebracket><space>=<space>send_from<lf><space><space><space><space>msg<openbracket><apos>To<apos><closebracket><space>=<space>COMMASPACE.join<openparen>tolist<closeparen><lf><space><space><space><space>msg<openbracket><apos>Date<apos><closebracket><space>=<space>formatdate<openparen>localtime=True<closeparen><lf><space><space><space><space>msg<openbracket><apos>Subject<apos><closebracket><space>=<space>subject<lf><space><space><space><space><lf><space><space><space><space>#<space>Add<space>email<space>body<space>text<comma><space>forcing<space>encoding<space>to<space>utf-8<lf><space><space><space><space>msg.attach<openparen><space>MIMEText<openparen>text<comma>text_format<comma><apos>utf-8<apos><closeparen><space><closeparen><lf><space><space><space><space><lf><space><space><space><space>#<space>If<space>there<space>are<space>any<space>attachments<comma><space>add<space>them<lf><space><space><space><space>if<space><openparen>attachments!=<apos><apos><closeparen>:<lf><space><space><space><space><space><space><space><space>for<space>f<space>in<space>filelist:<lf><space><space><space><space><space><space><space><space><space><space><space><space>part<space>=<space>MIMEBase<openparen><apos>application<apos><comma><space><quote>octet-stream<quote><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>part.set_payload<openparen><space>open<openparen>f<comma><quote>rb<quote><closeparen>.read<openparen><closeparen><space><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>Encoders.encode_base64<openparen>part<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>part.add_header<openparen><apos>Content-Disposition<apos><comma><space><apos>attachment<semicolon><space>filename=<quote>%s<quote><apos><space>%<space>os.path.basename<openparen>f<closeparen><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>part.add_header<openparen><apos>Content-ID<apos><comma><space><apos><lt>%s<gt><apos><space>%<space>os.path.basename<openparen>f<closeparen><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>msg.attach<openparen>part<closeparen><lf><space><space><space><space><lf><space><space><space><space>port<space>=<space>int<space><openparen>port<closeparen><lf><space><space><space><space><lf><space><space><space><space>#<space>Determine<space>how<space>we<space>want<space>to<space>begin<space>the<space>connection<lf><space><space><space><space>if<space><openparen>connection_type==<apos>TLS<apos><closeparen>:<lf><space><space><space><space><space><space><space><space>smtp=smtplib.SMTP<openparen>server<comma>port<closeparen><lf><space><space><space><space>else:<lf><space><space><space><space><space><space><space><space>smtp<space>=<space>smtplib.SMTP_SSL<openparen>server<comma>port<closeparen><lf><space><space><space><space><space><space><space><space><lf><space><space><space><space>#<space>If<space>a<space>username<space>is<space>provided<comma><space>try<space>to<space>authenticate<lf><space><space><space><space>if<space><openparen>username!=<apos><apos><closeparen>:<lf><space><space><space><space><space><space><space><space>smtp.login<openparen>username<comma>password<closeparen><lf><space><space><space><space><lf><space><space><space><space>#<space>Send<space>the<space>email<lf><space><space><space><space>smtp.sendmail<openparen>send_from<comma><space>tolist<comma><space>msg.as_string<openparen><closeparen><closeparen><lf><space><space><space><space>smtp.close<openparen><closeparen><lf><lf>#<space>Feature<space>starting<space>point<lf>def<space>email<openparen>feature<closeparen>:<lf><space><space><space><space><lf><space><space><space><space>#<space>Retrieve<space>all<space>variables<lf><space><space><space><space>email_from=feature.getAttribute<openparen><apos>_email_from<apos><closeparen><lf><space><space><space><space>email_to=feature.getAttribute<openparen><apos>_email_to<apos><closeparen><lf><space><space><space><space>email_subject=feature.getAttribute<openparen><apos>_email_subject<apos><closeparen><lf><space><space><space><space>email_message=feature.getAttribute<openparen><apos>_email_message<apos><closeparen><lf><space><space><space><space>email_message_type=feature.getAttribute<openparen><apos>_email_message_type<apos><closeparen><lf><space><space><space><space>email_server=feature.getAttribute<openparen><apos>_email_server<apos><closeparen><lf><space><space><space><space>server_port=feature.getAttribute<openparen><apos>_server_port<apos><closeparen><lf><space><space><space><space>cType=feature.getAttribute<openparen><apos>_cType<apos><closeparen><lf><space><space><space><space>username=feature.getAttribute<openparen><apos>_username<apos><closeparen><lf><space><space><space><space>password=feature.getAttribute<openparen><apos>_password<apos><closeparen><lf><space><space><space><space>Attachments=feature.getAttribute<openparen><apos>_Attachments<apos><closeparen><lf><space><space><space><space><lf><space><space><space><space>#<space>Call<space>the<space>main<space>function<lf><space><space><space><space>send_mail<openparen>email_from<comma>email_to<comma>email_subject<comma>email_message<comma>email_message_type<comma>email_server<comma>server_port<comma>cType<comma>username<comma>password<comma>Attachments<closeparen><space><space><space><space><lf>    OUTPUT PYOUTPUT FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_PythonCaller_OUTPUT"
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(PythonEmailer_WORKSPACE_NAME)_PythonCaller OUTPUT Output Nuker"   INPUT FEATURE_TYPE "$(PythonEmailer_WORKSPACE_NAME)_PythonCaller_OUTPUT"
+INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(PythonEmailer_WORKSPACE_NAME))}]
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+
