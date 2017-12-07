@@ -35,6 +35,8 @@
     </div>
     <div class="selector-container">
         <div class="wijken-block no-select border-ng-light">
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
+            <div class="flex-line-break"></div>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
@@ -71,17 +73,17 @@
         <div class="flex-line-break"></div>
         <label class="input-checkbox checkbox-groot no-select"><input name="gebruik" type="checkbox" value="alle gebruiksfuncties"/>Alle gebruiksfuncties</label>
         <div class="flex-line-break"></div>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="bijeenkomstfunctie"/>Bijeenkomstfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="celfunctie"/>Celfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="gezondheidszorgfunctie"/>Gezondheidszorgfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="industriefunctie"/>Industriefunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="kantoorfunctie"/>Kantoorfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="logiesfunctie"/>Logiesfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="onderwijsfunctie"/>Onderwijsfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="overige gebruiksfunctie"/>Overige gebruiksfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="sportfunctie"/>Sportfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="winkelfunctie"/>Winkelfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input unchecked name="gebruik" type="checkbox" value="woonfunctie"/>Woonfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="bijeenkomstfunctie"/>Bijeenkomstfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="celfunctie"/>Celfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="gezondheidszorgfunctie"/>Gezondheidszorgfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="industriefunctie"/>Industriefunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="kantoorfunctie"/>Kantoorfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="logiesfunctie"/>Logiesfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="onderwijsfunctie"/>Onderwijsfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="overige gebruiksfunctie"/>Overige gebruiksfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="sportfunctie"/>Sportfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="winkelfunctie"/>Winkelfunctie</label>
+        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="woonfunctie"/>Woonfunctie</label>
     </div>
 
     <div class="email-block border-ng-light">
@@ -90,7 +92,7 @@
     </div>
 
     <div >
-        <button class="button " type="submit">Verstuur</button>
+        <button class="button" type="submit">Verstuur</button>
     </div>
 </form>
 <script>
@@ -107,9 +109,7 @@
     if(!!window.performance && window.performance.navigation.type === 2) {
         console.log('Reloading');
         window.location.reload();
-    };
-    
-    var checkboxName = document.getElementsByName('gebruik');
+    };   
 </script>
 </body>
 </html>

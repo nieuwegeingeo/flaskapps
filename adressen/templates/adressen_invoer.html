@@ -30,11 +30,14 @@
         <select class="type-container__select" onchange="selectorChange()">
             <option value="map-block">Kaart selectie</option>
             <option value="wijken-block">Wijken selectie</option>
+            <option value="postcode-block">Postcode selectie</option>
             <!--<option>Selecteer type</option>-->
         </select>
     </div>
     <div class="selector-container">
         <div class="wijken-block no-select border-ng-light">
+            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
+            <div class="flex-line-break"></div>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
@@ -65,6 +68,10 @@
             <label for="coords">Geselecteerde coördinaten:</label>
             <input type="text" id="coords" name="coords" value="">
         </div>
+        <div class="postcode-block option-block border-ng-light">
+            <p>Voer een postcode in. De postcode wordt van links naar rechts  gelezen. Voer een 3 in voor alle postcodes beginnend met 3 dus 3xxx, 34 voor alle 34xx postcodes etc.</p>
+            <input type="text" name="postcode" value="">
+        </div>
     </div>
     <div class="option-block border-ng-light zichtbaar-flex">
         <p>In het adressenbestand van de gemeente hebben transformatorhuisjes en garageboxen een adres gekregen. U kunt hieronder aangeven of u deze adressen ook wilt ontvangen.</p>
@@ -78,7 +85,7 @@
     </div>
 
     <div >
-        <button class="button " type="submit">Verstuur</button>
+        <button class="button submit-button" type="submit">Verstuur</button>
     </div>
 </form>
 <script>

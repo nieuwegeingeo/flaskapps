@@ -27,7 +27,7 @@ def handle_request():
         vbo_geb_functie = request.form['vbo_geb_functie']
         output_format = request.form['output_format']
         output_data = request.form['output_data']
-        email = request.form['email']
+        email = request.form['email'].lower()
 
       	## LET OP LET OP: ofwel // gebruiken in de windows paden, ofwel \ gebruiken
         ## Anders problemen met bijvoorbeeld /f wat dan wordt vertaald als een formfeed-character https://docs.python.org/2.0/ref/strings.html
