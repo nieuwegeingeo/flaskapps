@@ -3,7 +3,7 @@
 
 <head>
 
-<title>FME formulier</title>
+<title>Oppervlak Percentage</title>
 {% set hostname = 'http://gng-ap713.nieuwegein.nl' %}
     <link rel="stylesheet" href="{{hostname}}/flask/static/style/base_style.css" type="text/css" />
     <link rel="stylesheet" href="{{hostname}}/flask/static/style/flask_form.css" type="text/css" />
@@ -20,23 +20,22 @@
 <form action="" class="border-ng-paars" method="post">
     <div class="title">
         <a class="button geo-forms-back" href="/geo_forms">Terug</a>
-        <h1 class="title__text">Adressen Selectie</h1>
+        <h1 class="title__text">Oppervlak Percentage Selectie</h1>
     </div>
     <div class="type-container border-ng-light">
         
         <p>Welkom op de gegevensformulieren pagina van team Geo-Informatie.</p>
-        <p>De adresgegevens kunnen op twee manieren opgevraagd worden, via het tekenen van een vlak op de kaart of door de wijken te selecteren. Maak met het menu hieronder een keuze.</p>
-
-        <select class="type-container__select" onchange="selectorChange()">
+        <p>Op deze pagina kan een rapport opgevraagd worden met percentages per type oppervlak per wijk, bijvoorbeeld, groen, water of verhard.</p>
+        <!--<select class="type-container__select" onchange="selectorChange()">
             <option value="map-block">Kaart selectie</option>
             <option value="wijken-block">Wijken selectie</option>
-            <option value="postcode-block">Postcode selectie</option>
-            <!--<option>Selecteer type</option>-->
-        </select>
+           <option>Selecteer type</option>
+        </select>-->
+        
     </div>
     <div class="selector-container">
-        <div class="wijken-block no-select border-ng-light">
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
+        <div class="wijken-block no-select border-ng-light zichtbaar-flex">
+            <label class="input-checkbox"><input name="alle_wijken" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
             <div class="flex-line-break"></div>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
@@ -61,37 +60,37 @@
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
         </div>
-        <div class="map-block option-block zichtbaar-flex border-ng-light">
-            <p>Teken punten op de kaart door te klikken. Klik twee keer of op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
+        <!--<div class="map-block option-block zichtbaar-flex border-ng-light">
+            <p>Teken punten op de kaart door te klikken. Klik op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
             <p>In en uitzoomen kan met het scrollwieltje en de kaart verschuiven kan door te klikken en slepen.</p>
             <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
             <label for="coords">Geselecteerde coördinaten:</label>
             <input type="text" id="coords" name="coords" value="">
-        </div>
-        <div class="postcode-block option-block border-ng-light">
-            <p>Voer een postcode in. De postcode wordt van links naar rechts  gelezen. Voer een 3 in voor alle postcodes beginnend met 3 dus 3xxx, 34 voor alle 34xx postcodes etc.</p>
-            <input type="text" name="postcode" value="">
-        </div>
+        </div>-->
     </div>
-    <div class="option-block border-ng-light zichtbaar-flex">
-        <p>In het adressenbestand van de gemeente hebben transformatorhuisjes en garageboxen een adres gekregen. U kunt hieronder aangeven of u deze adressen ook wilt ontvangen.</p>
-        <label class="input-checkbox"><input name="transformatorGarage" type="checkbox" value="transformator"/>Transformatorhuisjes</label>
-        <label class="input-checkbox"><input name="transformatorGarage" type="checkbox" value="garagebox"/>Garageboxen</label>
-    </div>
-
+    
     <div class="email-block border-ng-light">
+        <p>De gegevens zijn beschikbaar in Excel of als beknopt PDF rapport. Het pdf rapport laat alleen het totaal van de opgevraagde wijken zien. 
+           Het Excel bestand bevat het totaal en een sheet per wijk. 
+           Kies hier onder het gewenste formaat, let er op dat het opvragen van veel wijken tegelijk lang kan duren.</p>
+           <select class="type-container__select" name="outputType">
+            <option value="excel" >Excel</option>
+            <option value="pdf" >PDF</option>
+            <option value="beide" >Beide</option>
+            <!--<option>Selecteer type</option>-->
+        </select>
+        <div class="flex-line-break"></div>
         <p>Voer een geldig Gemeente Nieuwegein email adres in</p>
         <input type="field" name="email" value="" placeholder="@nieuwegein.nl">
     </div>
 
     <div >
-        <button class="button submit-button" type="submit">Verstuur</button>
+        <button class="button" type="submit">Verstuur</button>
     </div>
 </form>
 <script>
     function selectorChange() {
         optionSelector = $('.type-container__select option:selected').attr('value');
-        console.log('.'+optionSelector+'');
         $('.'+optionSelector+'').siblings().removeClass('zichtbaar-flex');
         $('.'+optionSelector+'').addClass('zichtbaar-flex');
         if($('.input-checkbox').checked) {
@@ -99,30 +98,40 @@
         }
     };
 
-    $('.input-checkbox').on('click', function(event) {
-        console.log('click');
-        if($(this).hasClass('checkbox-aan')) {
-            $(this).removeClass('checkbox-aan');
-            return;
-        } else {
-            $(this).addClass('checkbox-aan');
-            return;
-        }
-    });
-
-    $('.checkbox').on('click',function(event) {
-        event.preventDefault();
-        if(this.checked) {
-            console.log('checked');
-        } else {
-            console.log('unchecked');
-        }
-    });
-
     if(!!window.performance && window.performance.navigation.type === 2) {
         console.log('Reloading');
         window.location.reload();
-    };
+    };   
+    
+    $("[name~='alle_wijken']").on('click', function() {
+        if ($("[name~='alle_wijken']").prop('checked') == true) {
+            $("[name~='wijkenSelect']").prop('checked', true)
+        } else {
+            $("[name~='wijkenSelect']").prop('checked', false)
+        }
+    })
+    
+    $("[name~='wijkenSelect']").on('click', function() {
+         if ($(this).prop('checked') == false) {
+            $("[value~='alle_wijken']").prop('checked', false)
+         }
+    })
+    
+    $("[name~='alle_gebruiksfuncties']").on('click', function() {
+        console.log('alle gebr')
+        if ($("[name~='alle_gebruiksfuncties']").prop('checked') == true) {
+            $("[name~='gebruik']").prop('checked', true)
+        } else {
+            $("[name~='gebruik']").prop('checked', false)
+        }
+    })
+    
+    $("[name~='gebruik']").on('click', function() {
+        console.log('gebr click')
+         if ($(this).prop('checked') == false) {
+            $("[name~='alle_gebruiksfuncties']").prop('checked', false)
+         }
+    })
 </script>
 </body>
 </html>

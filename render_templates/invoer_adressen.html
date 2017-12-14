@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Verblijfsobjecten</title>
+<title>FME formulier</title>
 {% set hostname = 'http://gng-ap713.nieuwegein.nl' %}
     <link rel="stylesheet" href="{{hostname}}/flask/static/style/base_style.css" type="text/css" />
     <link rel="stylesheet" href="{{hostname}}/flask/static/style/flask_form.css" type="text/css" />
@@ -20,22 +20,23 @@
 <form action="" class="border-ng-paars" method="post">
     <div class="title">
         <a class="button geo-forms-back" href="/geo_forms">Terug</a>
-        <h1 class="title__text">Verblijfsobjecten Selectie</h1>
+        <h1 class="title__text">Adressen Selectie</h1>
     </div>
     <div class="type-container border-ng-light">
         
         <p>Welkom op de gegevensformulieren pagina van team Geo-Informatie.</p>
-        <p>De verblijfsobjecten kunnen op twee manieren opgevraagd worden, via het tekenen van een vlak op de kaart of door de wijken te selecteren. Maak met het menu hieronder een keuze.</p>
+        <p>De adresgegevens kunnen op twee manieren opgevraagd worden, via het tekenen van een vlak op de kaart of door de wijken te selecteren. Maak met het menu hieronder een keuze.</p>
 
         <select class="type-container__select" onchange="selectorChange()">
             <option value="map-block">Kaart selectie</option>
             <option value="wijken-block">Wijken selectie</option>
+            <option value="postcode-block">Postcode selectie</option>
             <!--<option>Selecteer type</option>-->
         </select>
     </div>
     <div class="selector-container">
         <div class="wijken-block no-select border-ng-light">
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
+            <label class="input-checkbox"><input name="alle_wijken" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
             <div class="flex-line-break"></div>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
@@ -61,29 +62,21 @@
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
         </div>
         <div class="map-block option-block zichtbaar-flex border-ng-light">
-            <p>Teken punten op de kaart door te klikken. Klik twee keer of op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
+            <p>Teken punten op de kaart door te klikken. Klik op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
             <p>In en uitzoomen kan met het scrollwieltje en de kaart verschuiven kan door te klikken en slepen.</p>
             <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
             <label for="coords">Geselecteerde coördinaten:</label>
             <input type="text" id="coords" name="coords" value="">
         </div>
+        <div class="postcode-block option-block border-ng-light">
+            <p>Voer een postcode in. De postcode wordt van links naar rechts  gelezen. Voer een 3 in voor alle postcodes beginnend met 3 dus 3xxx, 34 voor alle 34xx postcodes etc.</p>
+            <input type="text" name="postcode" value="">
+        </div>
     </div>
-    <div class="option-block border-ng-light gebruik-block zichtbaar-flex">
-        <p>Alle verblijfsobjecten hebben een gebruiksfunctie. Hieronder kan aangegeven worden of een specifieke gebruiksfunctie gewenst is.</p>
-        <div class="flex-line-break"></div>
-        <label class="input-checkbox checkbox-groot no-select"><input name="gebruik" type="checkbox" value="alle gebruiksfuncties"/>Alle gebruiksfuncties</label>
-        <div class="flex-line-break"></div>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="bijeenkomstfunctie"/>Bijeenkomstfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="celfunctie"/>Celfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="gezondheidszorgfunctie"/>Gezondheidszorgfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="industriefunctie"/>Industriefunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="kantoorfunctie"/>Kantoorfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="logiesfunctie"/>Logiesfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="onderwijsfunctie"/>Onderwijsfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="overige gebruiksfunctie"/>Overige gebruiksfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="sportfunctie"/>Sportfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="winkelfunctie"/>Winkelfunctie</label>
-        <label class="input-checkbox checkbox-breed no-select"><input name="gebruik" type="checkbox" value="woonfunctie"/>Woonfunctie</label>
+    <div class="option-block border-ng-light zichtbaar-flex">
+        <p>In het adressenbestand van de gemeente hebben transformatorhuisjes en garageboxen een adres gekregen. U kunt hieronder aangeven of u deze adressen ook wilt ontvangen.</p>
+        <label class="input-checkbox"><input name="transformatorGarage" type="checkbox" value="transformator"/>Transformatorhuisjes</label>
+        <label class="input-checkbox"><input name="transformatorGarage" type="checkbox" value="garagebox"/>Garageboxen</label>
     </div>
 
     <div class="email-block border-ng-light">
@@ -92,7 +85,7 @@
     </div>
 
     <div >
-        <button class="button" type="submit">Verstuur</button>
+        <button class="button submit-button" type="submit">Verstuur</button>
     </div>
 </form>
 <script>
@@ -106,10 +99,24 @@
         }
     };
 
+    $("[name~='alle_wijken']").on('click', function() {
+        if ($("[name~='alle_wijken']").prop('checked') == true) {
+            $("[name~='wijkenSelect']").prop('checked', true);
+        } else {
+            $("[name~='wijkenSelect']").prop('checked', false);
+        }
+    });
+    
+    $("[name~='wijkenSelect']").on('click', function() {
+         if ($(this).prop('checked') == false) {
+            $("[name~='alle_wijken']").prop('checked', false);
+         }
+    });
+   
     if(!!window.performance && window.performance.navigation.type === 2) {
         console.log('Reloading');
         window.location.reload();
-    };   
+    };
 </script>
 </body>
 </html>
