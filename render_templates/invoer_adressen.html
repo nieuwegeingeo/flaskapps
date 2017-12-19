@@ -11,10 +11,11 @@
 
     
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="{{hostname}}/flask/static/addSelectors.js" ></script>
+    <script src="{{hostname}}/flask/static/postcode_loader.js" defer></script>
+    <script src="{{hostname}}/flask/static/loading.js" defer></script>
     <script src="{{hostname}}/flask/static/ol.js" defer></script>
     <script src="{{hostname}}/flask/static/ngein.js" defer></script>
-    <script src="{{hostname}}/flask/static/addWijk.js" defer></script>
-    <script src="{{hostname}}/flask/static/loading.js" defer></script>
 </head>
 <body>
 <form action="" class="border-ng-paars" method="post">
@@ -22,56 +23,29 @@
         <a class="button geo-forms-back" href="/geo_forms">Terug</a>
         <h1 class="title__text">Adressen Selectie</h1>
     </div>
-    <div class="type-container border-ng-light">
+    
+    <div class="type-container border-ng-light zichtbaar-block">
         
         <p>Welkom op de gegevensformulieren pagina van team Geo-Informatie.</p>
         <p>De adresgegevens kunnen op twee manieren opgevraagd worden, via het tekenen van een vlak op de kaart of door de wijken te selecteren. Maak met het menu hieronder een keuze.</p>
 
         <select class="type-container__select" onchange="selectorChange()">
-            <option value="map-block">Kaart selectie</option>
+            <option value="map-block" selected="selected">Kaart selectie</option>
             <option value="wijken-block">Wijken selectie</option>
             <option value="postcode-block">Postcode selectie</option>
             <!--<option>Selecteer type</option>-->
         </select>
     </div>
-    <div class="selector-container">
-        <div class="wijken-block no-select border-ng-light">
-            <label class="input-checkbox"><input name="alle_wijken" type="checkbox" value="alle_wijken"/>Heel Nieuwegein</label>
-            <div class="flex-line-break"></div>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Noord"/>Batau Noord</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Batau Zuid"/>Batau Zuid</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Blokhoeve"/>Blokhoeve</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="De Wiers"/>De Wiers</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Doorslag"/>Doorslag</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Fokkesteeg"/>Fokkesteeg</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Galecop"/>Galecop</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Het Klooster"/>Het Klooster</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Hoge Landen"/>Hoge Landen</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Hoogzandveld"/>Hoogzandveld</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Huis de Geer"/>Huis de Geer</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Jutphaas Wijkersloot"/>Jutphaas Wijkersloot</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Laagraven"/>Laagraven</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Lekboulevard"/>Lekboulevard</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Merwestein"/>Merwestein</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Park Oudegein"/>Park Oudegein</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Plettenburg"/>Plettenburg</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Rijnhuizen"/>Rijnhuizen</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Stadscentrum"/>Stadscentrum</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Vreeswijk"/>Vreeswijk</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
-            <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
-        </div>
-        <div class="map-block option-block zichtbaar-flex border-ng-light">
+    
+    <div class="selector-container">        
+        <div class="map-block option-block border-ng-light zichtbaar-flex">
             <p>Teken punten op de kaart door te klikken. Klik op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
             <p>In en uitzoomen kan met het scrollwieltje en de kaart verschuiven kan door te klikken en slepen.</p>
             <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
             <label for="coords">Geselecteerde coördinaten:</label>
             <input type="text" id="coords" name="coords" value="">
         </div>
-        <div class="postcode-block option-block border-ng-light">
-            <p>Voer een postcode in. De postcode wordt van links naar rechts  gelezen. Voer een 3 in voor alle postcodes beginnend met 3 dus 3xxx, 34 voor alle 34xx postcodes etc.</p>
-            <input type="text" name="postcode" value="">
-        </div>
+        
     </div>
     <div class="option-block border-ng-light zichtbaar-flex">
         <p>In het adressenbestand van de gemeente hebben transformatorhuisjes en garageboxen een adres gekregen. U kunt hieronder aangeven of u deze adressen ook wilt ontvangen.</p>
@@ -81,7 +55,7 @@
 
     <div class="email-block border-ng-light">
         <p>Voer een geldig Gemeente Nieuwegein email adres in</p>
-        <input type="field" name="email" value="" placeholder="@nieuwegein.nl">
+        <input class="text-input" type="field" name="email" value="" placeholder="@nieuwegein.nl">
     </div>
 
     <div >
@@ -118,5 +92,6 @@
         window.location.reload();
     };
 </script>
+
 </body>
 </html>

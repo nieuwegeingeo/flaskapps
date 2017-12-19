@@ -11,9 +11,9 @@
 
     
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="{{hostname}}/flask/static/addSelectors.js" ></script>
     <script src="{{hostname}}/flask/static/ol.js" defer></script>
     <script src="{{hostname}}/flask/static/ngein.js" defer></script>
-    <script src="{{hostname}}/flask/static/addWijk.js" defer></script>
     <script src="{{hostname}}/flask/static/loading.js" defer></script>
 </head>
 <body>
@@ -22,16 +22,9 @@
         <a class="button geo-forms-back" href="/geo_forms">Terug</a>
         <h1 class="title__text">Oppervlak Percentage Selectie</h1>
     </div>
-    <div class="type-container border-ng-light">
-        
+    <div class="type-container border-ng-light zichtbaar-block">
         <p>Welkom op de gegevensformulieren pagina van team Geo-Informatie.</p>
-        <p>Op deze pagina kan een rapport opgevraagd worden met percentages per type oppervlak per wijk, bijvoorbeeld, groen, water of verhard.</p>
-        <!--<select class="type-container__select" onchange="selectorChange()">
-            <option value="map-block">Kaart selectie</option>
-            <option value="wijken-block">Wijken selectie</option>
-           <option>Selecteer type</option>
-        </select>-->
-        
+        <p>Op deze pagina kan een rapport opgevraagd worden verschillende types oppervlak per wijk, bijvoorbeeld, groen, water of verhard.</p>
     </div>
     <div class="selector-container">
         <div class="wijken-block no-select border-ng-light zichtbaar-flex">
@@ -60,13 +53,6 @@
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zandveld"/>Zandveld</label>
             <label class="input-checkbox"><input name="wijkenSelect" type="checkbox" value="Zuilenstein"/>Zuilenstein</label>
         </div>
-        <!--<div class="map-block option-block zichtbaar-flex border-ng-light">
-            <p>Teken punten op de kaart door te klikken. Klik op het beginpunt om een vlak te sluiten en een gebied te selecteren. De coördinaten worden in het veld onder de kaart ingevuld.</p>
-            <p>In en uitzoomen kan met het scrollwieltje en de kaart verschuiven kan door te klikken en slepen.</p>
-            <div id="map" style="width:100%;height:400px;margin-bottom:20px;"></div>
-            <label for="coords">Geselecteerde coördinaten:</label>
-            <input type="text" id="coords" name="coords" value="">
-        </div>-->
     </div>
     
     <div class="email-block border-ng-light">
